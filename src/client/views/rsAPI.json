@@ -1,0 +1,89 @@
+curl - XPOST "https://api.meaningcloud.com/sentiment-2.1?key=45b3199b8b7b6691ff0fde71c343d64c&of=json&url=https%3A%2F%2Fedition.cnn.com%2F2021%2F03%2F24%2Famericas%2Fbrazil-youth-covid-19-intl-latam%2Findex.html&lang=en&txt=HTML"
+
+{
+  "status": {
+    "code": "0",
+    "msg": "OK",
+    "credits": "1",
+    "remaining_credits": "19998"
+  },
+  "model": "general_en",
+  "score_tag": "NONE",
+  "agreement": "AGREEMENT",
+  "subjectivity": "OBJECTIVE",
+  "confidence": "100",
+  "irony": "NONIRONIC",
+  "sentence_list": [
+    {
+      "text": "HTML",
+      "inip": "0",
+      "endp": "3",
+      "bop": "y",
+      "confidence": "100",
+      "score_tag": "NONE",
+      "agreement": "AGREEMENT",
+      "segment_list": [
+        {
+          "text": "HTML",
+          "segment_type": "secondary",
+          "inip": "0",
+          "endp": "3",
+          "confidence": "100",
+          "score_tag": "NONE",
+          "agreement": "AGREEMENT",
+          "polarity_term_list": [],
+          "sentimented_concept_list": [
+            {
+              "form": ".html",
+              "id": "08da16f472",
+              "variant": "HTML",
+              "inip": "0",
+              "endp": "3",
+              "type": "Top",
+              "score_tag": "NONE"
+            },
+            {
+              "form": "HTML",
+              "id": "2c505cce67",
+              "variant": "HTML",
+              "inip": "0",
+              "endp": "3",
+              "type": "Top>OtherEntity>MethodSystem",
+              "score_tag": "NONE"
+            }
+          ]
+        }
+      ],
+      "sentimented_entity_list": [],
+      "sentimented_concept_list": [
+        {
+          "form": ".html",
+          "id": "08da16f472",
+          "type": "Top",
+          "score_tag": "NONE"
+        },
+        {
+          "form": "HTML",
+          "id": "2c505cce67",
+          "type": "Top>OtherEntity>MethodSystem",
+          "score_tag": "NONE"
+        }
+      ]
+    }
+  ],
+  "sentimented_entity_list": [],
+  "sentimented_concept_list": [
+    {
+      "form": ".html",
+      "id": "08da16f472",
+      "type": "Top",
+      "score_tag": "NONE"
+    },
+    {
+      "form": "HTML",
+      "id": "2c505cce67",
+      "type": "Top>OtherEntity>MethodSystem",
+      "score_tag": "NONE"
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Test</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&family=Montserrat&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="loader">
+        <img src="../static/spinner.svg" alt="spinner">
+    </div>
+    <header>
+        <div class="">
+            <h1 class="title"> Sentiment Analysis</h1>
+
+        </div>
+
+    </header>
+
+    <main>
+        <section id="section-form-box">
+            <form class="" onsubmit="return handleSubmit(event)">
+                <label>Insert a URL to analyse:</label>
+                <span id="url-error"></span>
+                <input id="url-input" pattern="(http|https):\/\/[\S]{2,256}(\.[a-zA-Z0-9@:%._\\+~#?&=]{2,64}\/?)(\S*)+" type="text" name="input" required placeholder="https://...">
+                <div class="button-form">
+                    <button type="submit" onclick="Client.handleSubmit(event)" onsubmit="return handleSubmit(event)">SUBMIT </button>
+                </div>
+            </form>
+        </section>
+
+        <section id="section-form-results">
+            <h2>Form Results:</h2>
+            <div id="results"></div>
+            <table id="table-form-results">
+                <thead>
+                    <tr>
+                        <th id="header-url">URL</th>
+                        <th id="header-confidence">Confidence</th>
+                        <th id="header-agreement">Agreement</th>
+                        <th id="header-subjectivity">Subjectivity</th>
+                        <th id="header-irony">Irony</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+body {
+    font-family: Roboto, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: url("https://live.staticflickr.com/4638/24698202607_f082170657_k.jpg");
+    color: wheat;
+    background-size: cover;
+    box-sizing: border-box;
+}
+
+main {
+    flex: 2;
+}
+
+section {
+    margin: 50px auto;
+}
+
+.loader {
+    align-items: center;
+    /* background: rgb(23, 22, 22); */
+    height: 100vh;
+    justify-content: center;
+    left: 0;
+    position: fixed;
+    top: 0;
+    transition: opacity 0.3s linear;
+    width: 100%;
+    z-index: 9999;
+    display: none;
+}
+
+.loader.active {
+    display: flex;
+}
