@@ -1,12 +1,10 @@
-const enteredUrl = document.querySelector('#url-input');
-
 /**
  * @description  Checks the validity of the urlInput element and
  * shows an approriate error message
  *  Code inspiration: formValidator from MDN
  *https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation
- * @param
- * @returns
+ * @param {HTMLElement} urlInput - element with the user input
+ * @param {HTMLElement} urlError = element used to provide error message to the user
  */
 function showError(urlInput, urlError) {
     if (urlInput.validity.valid) {
@@ -24,10 +22,5 @@ function showError(urlInput, urlError) {
     urlInput.className = (!urlInput.className.includes('error')) ?
         `${urlInput.className} error` : urlInput.className;
 }
-
-enteredUrl.addEventListener('input', (event) => {
-    const urlError = document.querySelector('#url-error');
-    showError(enteredUrl, urlError);
-});
 
 export { showError }

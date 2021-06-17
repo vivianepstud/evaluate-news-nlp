@@ -4,7 +4,7 @@ Base Code copied from [Udacity Evaluate News Nlp](https://github.com/udacity/fen
 
 HTML, Sass and Javascript files were extensively modified.
 
-Simple Node JS App that analyses articles with Natural Language Processing.
+Simple Node JS App that analyses webpage with Natural Language Processing provided by Meaning Cloud.
 
 
 Project Highlights 

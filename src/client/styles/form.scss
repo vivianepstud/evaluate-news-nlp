@@ -1,98 +1,191 @@
-#section-form-box {
-    width: 60%;
-}
-
-form {
-    border: 1px solid #545454;
-    border-radius: 3px;
-    padding: 40px;
-    background: #fffdfd;
-    color: #000;
-    font-size: 1.2em;
-    input {
-        padding: 10px 20px;
-        width: 100%;
-        line-height: 16px;
-        box-sizing: border-box;
-        border: 0;
-        border-radius: 0.25rem;
-        font-size: 1em;
-        margin: 1.6em 0 1em 0;
-        background: lightgray;
-        &.error {
-            background: lightcoral;
-            margin: 0.5em 0 1em 0;
+    #section-form-box {
+        width: 60%;
+        margin: 2em auto;
+    }
+    
+    form {
+        border: 1px solid #545454;
+        border-radius: 3px;
+        padding: 40px;
+        background: #fffdfd;
+        color: #000;
+        font-size: 1.2em;
+        input {
+            padding: 10px 20px;
+            width: 100%;
+            line-height: 16px;
+            box-sizing: border-box;
+            border: 0;
+            border-radius: 0.25rem;
+            font-size: 1em;
+            margin: 1.6em 0 1em 0;
+            background: lightgray;
+            &.error {
+                background: lightcoral;
+                margin: 0.5em 0 1em 0;
+            }
+        }
+        span {
+            display: none;
+            font-size: 0.9em;
+            font-weight: bold;
+            margin: 1em 0;
+            &.active {
+                display: block;
+            }
         }
     }
-    span {
+    
+    .button-form {
+        display: flex;
+        justify-content: center;
+        button {
+            font-weight: 600;
+            background-color: #e1353a;
+            width: 30%;
+            text-align: center;
+            border-radius: 20px;
+            padding: 15px;
+            margin: 0;
+            border: 0px;
+            margin-top: 10px;
+            color: aliceblue;
+            font-size: 1em;
+        }
+    }
+    
+    #section-form-results {
+        max-width: none;
+        width: 90%;
         display: none;
-        font-size: 0.9em;
-        font-weight: bold;
-        margin: 1em 0;
-        &.active {
+        h2 {
+            font-size: 1.8em;
+            padding: 1em 0px;
+            font-weight: bold;
+            color: white;
+        }
+        &.isActive {
             display: block;
         }
     }
-}
-
-.button-form {
-    display: flex;
-    justify-content: center;
-    button {
-        font-weight: 600;
-        background-color: #e1353a;
-        width: 30%;
+    
+    #table-form-results {
+        background: white;
+        color: #484b4c;
         text-align: center;
-        border-radius: 20px;
-        padding: 15px;
-        margin: 0;
-        border: 0px;
-        margin-top: 10px;
-        color: aliceblue;
-        font-size: 1em;
+        width: 100%;
+        font-size: 0.8em;
+        table-layout: fixed;
+        display: none;
+        &.active {
+            display: table;
+        }
     }
-}
-
-#section-form-results {
-    max-width: none;
-    width: 90%;
-    h2 {
-        font-size: 1.4em;
-        padding: 15px 5px;
-        margin: 20px 0;
-        font-weight: bold;
-        color: #d8ecf1;
+    
+    thead {
+        th:nth-child(1) {
+            width: 40%;
+        }
+        th {
+            width: 15%;
+            font-size: 1.2em;
+            background: #e1353a;
+            color: white;
+        }
     }
-}
-
-#table-form-results {
-    background: #fffdfd;
-    color: #484b4c;
-    text-align: center;
-    width: 100%;
-    font-size: 1em;
-    table-layout: fixed;
-    display: none;
-    &.active {
-        display: table;
-    }
-    thead th:nth-child(1) {
-        width: 40%;
-    }
-    thead th {
-        width: 15%;
-    }
+    
     th,
     td {
         padding: 20px;
-        border: 2px solid #dee7f1;
     }
+    
     th {
         font-weight: bold;
     }
+    
     td {
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
     }
-}
+    
+    @media (max-width:701px) {
+        form {
+            font-size: 1em;
+            padding: 0.9em 0.6em 0.8em 0.6em;
+        }
+        #section-form-box {
+            width: 90%;
+        }
+        form input {
+            padding: 0.8em 0.3em;
+            width: 100%;
+            line-height: 16px;
+            box-sizing: border-box;
+            border: 0;
+            border-radius: 0.25rem;
+            margin: 1em 0 1em;
+            background: #d3d3d3;
+            font-size: 0.8em;
+        }
+        .button-form button {
+            font-weight: 600;
+            background-color: #e1353a;
+            width: 40%;
+            text-align: center;
+            border-radius: 20px;
+            padding: 1em;
+            border: 0;
+            margin: 0;
+            color: #f0f8ff;
+            font-size: 0.8em;
+        }
+        table,
+        thead,
+        tbody,
+        th,
+        td,
+        tr {
+            display: block;
+        }
+        /* Hide table headers (but not display: none;, for accessibility) */
+        thead tr {
+            position: absolute;
+            top: -9999px;
+            left: -9999px;
+        }
+        tr {
+            border: 1px solid #ccc;
+            border-bottom: 5px solid gray;
+        }
+        td {
+            /* Behave  like a "row" */
+            border: none;
+            border-bottom: 1px solid #eee;
+            position: relative;
+            text-align: left;
+        }
+        td:before {
+            /* Now like a table header */
+            /* Top/left values mimic padding */
+            left: 6px;
+            padding-right: 2em;
+            white-space: nowrap;
+            font-weight: 600;
+        }
+        td:nth-of-type(1):before {
+            content: "URL";
+        }
+        td:nth-of-type(2):before {
+            content: "Confidence";
+        }
+        td:nth-of-type(3):before {
+            content: "Agreement";
+        }
+        td:nth-of-type(4):before {
+            content: "Subjectivity";
+        }
+        td:nth-of-type(5):before {
+            content: "Irony";
+        }
+    }

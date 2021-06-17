@@ -1,19 +1,16 @@
 // Import the js file to test
 import { showError } from '../src/client/js/validationChecker';
 
-describe("Testing the validationChecker functionality", () => {
+describe("Testing the showError function", () => {
 
-    let urlInput = document.createElement('input');
-    let urlError = document.createElement('span');
-
-    beforeEach(() => {
-        urlInput = document.createElement('input');
-        urlInput.id = 'url-input';
-        urlInput.required = true;
-        urlInput.pattern = '(http|https):\\/\\/[\\S]{2,256}(\\.[a-zA-Z0-9@:%._\\+~#?&amp;=]{2,64}\\/?)(\\S*)+';
-        urlError = document.createElement('span');
-        urlError.id = 'url-error';
-    });
+    const urlInput = document.createElement('input');
+    const urlError = document.createElement('span');
+    urlInput.id = 'url-input';
+    urlInput.required = true;
+    urlInput.pattern = '(http|https):\\/\\/[\\S]{2,256}(\\.[a-zA-Z0-9@:%._\\+~#?&amp;=]{2,64}\\/?)(\\S*)+';
+    urlError.id = 'url-error';
+    document.body.appendChild(urlInput);
+    document.body.appendChild(urlError);
 
     test('Testing the showError function when input is empty', () => {
         urlInput.value = '';
@@ -30,10 +27,9 @@ describe("Testing the validationChecker functionality", () => {
         expect(urlError.className).toEqual('error active');
         expect(urlInput.className).toEqual(expect.stringContaining('error'));
     });
-    test('Testing the showError function when input does not match the pattern', () => {
+    test('Testing the showError function when input does match the pattern', () => {
         urlInput.value = 'https://example.com';
         showError(urlInput, urlError);
-        //expect($('#username').text()).toEqual('Johnny Cash - Logged In');
         expect(urlError.textContent).toEqual('');
         expect(urlError.className).not.toEqual('error active');
         expect(urlInput.className).toEqual(expect.not.stringContaining('error'));

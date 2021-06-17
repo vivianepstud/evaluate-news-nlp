@@ -6,16 +6,19 @@
     <title>Test</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&family=Montserrat&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
 </head>
 
 <body>
+    <div class="backdrop">
+    </div>
     <div class="loader">
         <img src="../static/spinner.svg" alt="spinner">
     </div>
     <header>
-        <div class="">
-            <h1 class="title"> Sentiment Analysis</h1>
+        <div class="header__titlecontainer">
+            <h1 class="header__title"> Sentiment Analysis</h1>
 
         </div>
 
@@ -23,18 +26,18 @@
 
     <main>
         <section id="section-form-box">
-            <form class="" onsubmit="return handleSubmit(event)">
-                <label>Insert a URL to analyse:</label>
+            <form class="" onsubmit="Client.handleSubmit(event)" novalidate>
+                <label for="url-input"> Insert an URL to analyse:</label>
                 <span id="url-error"></span>
-                <input id="url-input" pattern="(http|https):\/\/[\S]{2,256}(\.[a-zA-Z0-9@:%._\\+~#?&=]{2,64}\/?)(\S*)+" type="text" name="input" required placeholder="https://...">
+                <input id="url-input" pattern="(http|https):\/\/[\S]{2,256}(\.[a-zA-Z0-9@:%._\\+~#?&=]{2,64}\/?)(\S*)+" type="text" name="url-input" required placeholder="https://...">
                 <div class="button-form">
-                    <button type="submit" onclick="Client.handleSubmit(event)" onsubmit="return handleSubmit(event)">SUBMIT </button>
+                    <button type="submit">SUBMIT </button>
                 </div>
             </form>
         </section>
 
         <section id="section-form-results">
-            <h2>Form Results:</h2>
+            <h2>Previous queries</h2>
             <div id="results"></div>
             <table id="table-form-results">
                 <thead>
@@ -56,7 +59,15 @@
     <footer>
 
     </footer>
-
+    <script>
+        // Check that service workers are supported
+        if ('serviceWorker' in navigator) {
+            // Use the window load event to keep the page load performant
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js');
+            });
+        }
+    </script>
 </body>
 
 </html>
